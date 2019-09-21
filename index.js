@@ -18,6 +18,21 @@ const filterWords = [
   'for',
   'in',
   'was',
+  '',
+  'that',
+  'is',
+  'are',
+  'as',
+  'does',
+  'on',
+  'by',
+  'it',
+  'be',
+  'with',
+  'this',
+  'than',
+  'been',
+  'its',
 ];
 
 const breakDownSentence = text => {
@@ -73,10 +88,27 @@ const getSpreadOfPercentCorrect = arrOfobj => {
   return result;
 };
 
+const analyzeData = dataObj => {
+  const keys = Object.keys(dataObj);
+  const formatedDataArray = [];
+  keys.forEach(w => {
+    const { totalAppeared, belowFiftyCount, aboveFiftyCount } = dataObj[w];
+    formatedDataArray.push({
+      word: w,
+      totalAppeared,
+      aboveFiftyCount,
+      belowFiftyCount,
+    });
+  });
+  return formatedDataArray.sort((a, b) => b.totalAppeared - a.totalAppeared);
+};
+
 // console.log(getSpreadOfPercentCorrectQuizQuestions(file));
-// console.log(getSpreadOfPercentCorrect(file));
+const data = getSpreadOfPercentCorrect(file);
+console.log(analyzeData(data));
 
 module.exports = {
   breakDownSentence,
   getSpreadOfPercentCorrect,
+  analyzeData,
 };

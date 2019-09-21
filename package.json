@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "env NODE_ENV=test istanbul cover _mocha -- -u bdd --timeout 5000 $(find tests -name '*.js')"
   },
   "keywords": [],

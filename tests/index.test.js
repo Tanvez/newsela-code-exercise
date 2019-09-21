@@ -1,5 +1,9 @@
 const chai = require('chai');
-const { breakDownSentence, getSpreadOfPercentCorrect } = require('../index');
+const {
+  breakDownSentence,
+  getSpreadOfPercentCorrect,
+  analyzeData,
+} = require('../index');
 
 const { expect } = chai;
 describe('Index Test', () => {
@@ -33,6 +37,14 @@ describe('Index Test', () => {
     it('should return an object containing words and values for aboveFiftyPercent and belowFiftyPercent', () => {
       const result = getSpreadOfPercentCorrect(data);
       expect(result.why.totalAppeared).to.equal(3);
+    });
+  });
+  describe('analyzeData function', () => {
+    it.only('should return sorted array with most frequent appearance of words and their percentages', () => {
+      const resultObj = getSpreadOfPercentCorrect(data);
+      const resultArray = analyzeData(resultObj);
+      console.log(resultArray);
+      // expect(result.why.totalAppeared).to.equal(3);
     });
   });
 });
