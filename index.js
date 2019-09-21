@@ -47,8 +47,8 @@ const breakDownSentence = text => {
 
 const getSpreadOfPercentCorrect = arrOfobj => {
   const result = {};
-  arrOfobj.forEach(sentencePercentCorrect => {
-    const { text, percent_correct: percentCorrect } = sentencePercentCorrect;
+  arrOfobj.forEach(questionPercentCorrect => {
+    const { text, percent_correct: percentCorrect } = questionPercentCorrect;
     const splitText = breakDownSentence(text);
     splitText.forEach(elementText => {
       if (!result[elementText]) {
@@ -88,7 +88,7 @@ const getSpreadOfPercentCorrect = arrOfobj => {
   return result;
 };
 
-const analyzeData = dataObj => {
+const formatAndSortData = dataObj => {
   const keys = Object.keys(dataObj);
   const formatedDataArray = [];
   keys.forEach(w => {
@@ -105,10 +105,10 @@ const analyzeData = dataObj => {
 
 // console.log(getSpreadOfPercentCorrectQuizQuestions(file));
 const data = getSpreadOfPercentCorrect(file);
-console.log(analyzeData(data));
+console.log(formatAndSortData(data));
 
 module.exports = {
   breakDownSentence,
   getSpreadOfPercentCorrect,
-  analyzeData,
+  formatAndSortData,
 };
