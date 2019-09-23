@@ -37,8 +37,8 @@ $ npm run start
 
   ### formatAndSortData(structuredData, typeToSortBy)
 
-    - This function takes in the structuredData object created from `getSpreadOfPercentCorrect()` and returns a sorted array based on the second condition `typeToSortBy`. 
-    - Options of `typeToSortBy` includes `totalAppeared`, `aboveFiftyCount`, `belowFiftyCount`
+  - This function takes in the structuredData object created from`getSpreadOfPercentCorrect()` and returns a sorted array based on the secondcondition `typeToSortBy`. 
+  - Options of `typeToSortBy` includes `totalAppeared`, `aboveFiftyCount`,`belowFiftyCount`
 
   ### Top Ten Results
 
