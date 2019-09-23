@@ -1,6 +1,6 @@
 const chai = require('chai');
 const {
-  breakDownSentence,
+  breakDownQuestion,
   getSpreadOfPercentCorrect,
   formatAndSortData,
 } = require('../index');
@@ -27,9 +27,9 @@ describe('Index Test', () => {
       percent_correct: 0.4314159292035398,
     },
   ];
-  describe('breakDownSentence function', () => {
+  describe('breakDownQuestion function', () => {
     it('Format text containing carriage return, newline, and tab annotation into an array of words', () => {
-      const result = breakDownSentence(data[0].text);
+      const result = breakDownQuestion(data[0].text);
       expect(result).to.be.an('array');
     });
   });
@@ -42,7 +42,7 @@ describe('Index Test', () => {
   describe('analyzeData function', () => {
     it('should return sorted array with most frequent appearance of words and their percentages', () => {
       const resultObj = getSpreadOfPercentCorrect(data);
-      const resultArray = formatAndSortData(resultObj);
+      const resultArray = formatAndSortData(resultObj, 'totalAppeared');
       expect(resultArray[0].word).to.equal('why');
     });
   });

@@ -35,7 +35,7 @@ const filterWords = [
   'its',
 ];
 
-const breakDownSentence = text => {
+const breakDownQuestion = text => {
   const splitText = text
     .toLowerCase()
     // replaces special characters, puncuation, text containing carriage return, newline, and tab annotation
@@ -49,7 +49,7 @@ const getSpreadOfPercentCorrect = arrOfobj => {
   const result = {};
   arrOfobj.forEach(questionPercentCorrect => {
     const { text, percent_correct: percentCorrect } = questionPercentCorrect;
-    const splitText = breakDownSentence(text);
+    const splitText = breakDownQuestion(text);
     splitText.forEach(elementText => {
       if (!result[elementText]) {
         if (percentCorrect * 100 > 50) {
@@ -88,27 +88,37 @@ const getSpreadOfPercentCorrect = arrOfobj => {
   return result;
 };
 
-const formatAndSortData = dataObj => {
-  const keys = Object.keys(dataObj);
-  const formatedDataArray = [];
-  keys.forEach(w => {
-    const { totalAppeared, belowFiftyCount, aboveFiftyCount } = dataObj[w];
-    formatedDataArray.push({
-      word: w,
-      totalAppeared,
-      aboveFiftyCount,
-      belowFiftyCount,
+const formatAndSortData = (dataObj, sortByStr) => {
+  if (
+    sortByStr === 'totalAppeared' ||
+    sortByStr === 'aboveFiftyCount' ||
+    sortByStr === 'aboveFiftyCount'
+  ) {
+    const keys = Object.keys(dataObj);
+    const formatedDataArray = [];
+    keys.forEach(w => {
+      const { totalAppeared, belowFiftyCount, aboveFiftyCount } = dataObj[w];
+      formatedDataArray.push({
+        word: w,
+        totalAppeared,
+        aboveFiftyCount,
+        belowFiftyCount,
+      });
     });
-  });
-  return formatedDataArray.sort((a, b) => b.totalAppeared - a.totalAppeared);
+    return formatedDataArray.sort((a, b) => b[sortByStr] - a[sortByStr]);
+  }
+  throw new Error(
+    "Please enter type to sort by 'totalAppeared', 'aboveFiftyCount', 'belowFiftyCount'"
+  );
 };
 
-// console.log(getSpreadOfPercentCorrectQuizQuestions(file));
 const data = getSpreadOfPercentCorrect(file);
-console.log(formatAndSortData(data));
+console.log(formatAndSortData(data, 'totalAppeared'));
+// console.log(formatAndSortData(data, 'aboveFiftyCount'));
+// console.log(formatAndSortData(data, 'belowFiftyCount'));
 
 module.exports = {
-  breakDownSentence,
+  breakDownQuestion,
   getSpreadOfPercentCorrect,
   formatAndSortData,
 };
