@@ -18,7 +18,7 @@ $ npm run start
 ### breakDownQuestion(text)
 
   - The first function is a helper function called `breakDownQuestion` 
-  - This function takes the text from the question and breaks it down into an array of words
+  - This function takes the text from the question and breaks it down into an array of words while filtering out puncuations and special characters
   - This array of words is then filtered using `filterWords` array which contain common use words that would be used in most english sentences. The filtered array of words is then return
 
 ### getSpreadOfPercentCorrect(data)
