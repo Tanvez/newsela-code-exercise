@@ -3,7 +3,7 @@
 I broke down the problem of `What words or phrases appear more frequently in questions that students tend to do poorly on, and what appear more frequently in questions that students do well on?` into 3 different functions.
 
 ## Functions
----
+
 ### breakDownQuestion(text)
 
   - The first function is a helper function called `breakDownQuestion` 
@@ -25,7 +25,7 @@ I broke down the problem of `What words or phrases appear more frequently in que
   Note: at this point I have not used the `percentageOfTotalQuestions` in the final function but i thought it might be a good statistic if criteria changed
 
   ### formatAndSortData(structuredData, typeToSortBy)
-  
+
   - 
 
   
