@@ -2,6 +2,17 @@
 
 I broke down the problem of `What words or phrases appear more frequently in questions that students tend to do poorly on, and what appear more frequently in questions that students do well on?` into 3 different functions.
 
+## Installation
+Note: if you want to run test otherwise omit this command
+```bash 
+$ npm install
+$ npm run test
+```
+To run program
+```bash
+$ npm run start
+```
+
 ## Functions
 
 ### breakDownQuestion(text)
