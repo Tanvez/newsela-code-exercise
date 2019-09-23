@@ -92,7 +92,7 @@ const formatAndSortData = (dataObj, sortByStr) => {
   if (
     sortByStr === 'totalAppeared' ||
     sortByStr === 'aboveFiftyCount' ||
-    sortByStr === 'aboveFiftyCount'
+    sortByStr === 'belowFiftyCount'
   ) {
     const keys = Object.keys(dataObj);
     const formatedDataArray = [];
@@ -113,9 +113,13 @@ const formatAndSortData = (dataObj, sortByStr) => {
 };
 
 const data = getSpreadOfPercentCorrect(file);
-console.log(formatAndSortData(data, 'totalAppeared'));
-// console.log(formatAndSortData(data, 'aboveFiftyCount'));
-// console.log(formatAndSortData(data, 'belowFiftyCount'));
+
+const totalAppeared = formatAndSortData(data, 'totalAppeared');
+const aboveFifty = formatAndSortData(data, 'aboveFiftyCount');
+const belowFifty = formatAndSortData(data, 'belowFiftyCount');
+console.log('totalAppeared ', totalAppeared.slice(0, 9));
+console.log('aboveFiftyCount ', aboveFifty.slice(0, 9));
+console.log('belowFiftyCount', belowFifty.slice(0, 9));
 
 module.exports = {
   breakDownQuestion,
